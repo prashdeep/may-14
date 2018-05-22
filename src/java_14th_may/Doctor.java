@@ -4,6 +4,8 @@ public abstract class Doctor {
 	private String name;
 	private String specialization;
 	private int noOfYearsExperience;
+	private final double CONSULATION_FEE = 200.00;
+	private final String[] hospitals = {"Hospital1", "Hospital2", "Hospital3"};
 	
 	public Doctor(String name) {
 		this.name = name;
@@ -34,6 +36,9 @@ public abstract class Doctor {
 	public abstract void treatPatient();
 	
 	public final double consultationFeePerVisit() {
-		return 200;
+		//CONSULATION_FEE = 4500;
+		hospitals[0] = "My New Hospital" ;
+		hospitals[1] = "Another new Hospital";
+		return this.CONSULATION_FEE;
 	}
 }
