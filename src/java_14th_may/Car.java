@@ -7,17 +7,20 @@ public class Car {
 	private String make;
 	private double speed;
 	private String chassiNumber;
+	private static int count;
 
 	
 	public Car(String color, String model, String make) {
 		this.color = color;
 		this.model = model;
 		this.make = make;
+		this.count++;
 	}
 	
 	public Car(String color, String make) {
 		this.color = color;
 		this.make = make;
+		this.count++;
 	}
 
 	public void setColor(String color) {
@@ -75,5 +78,9 @@ public class Car {
 	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
-
+	
+	public static int getCarCount() {
+		return count;
+		
+	}
 }
