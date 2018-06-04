@@ -1,0 +1,55 @@
+show databases;
+create database june14;
+
+use june14;
+show tables;
+
+create table user(
+   id int unsigned primary key,
+   name varchar(20),
+   age int 
+);
+
+select * from user;
+
+insert into user (id, name, age) 
+       values (2, "Kartheek", 32),
+        (3, "Kiran", 28),
+        (4, "Raj", 32);
+       
+       
+create table address(
+  address_id int unsigned primary key auto_increment,
+  city varchar(30),
+  street varchar(20),
+  state varchar(20),
+  user_id int unsigned,
+  constraint foreign key (user_id) references user(id)
+);       
+       
+select * from address;
+
+
+
+insert into address(city, state, street , user_id) values("Bangalore","Karnataka","9th Street",1),
+("Hyderabac","AP","9th Street", 1),
+("Mumbai","MH","9th Street",1),
+("Aurangadabad","GJ","9th Street",1),
+("Delhi","Delhi","9th Street",1);
+
+
+select * from address;
+
+select u.id, u.age, u.name, a.city,a.state,a.street from user u inner join address a on u.id=a.user_id;
+
+update user set name="Pradeep Kumar" where name="Pradeep";
+select * from user;
+delete from user where id=2;
+
+alter table user add column salary double not null default 0.0;
+
+select * from user;
+
+update user set salary = 20000 ;
+
+select * from user where salary in (3000,20000);
