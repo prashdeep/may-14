@@ -20,7 +20,7 @@ public class BatchUpdateExample {
 			ps.setDouble(4, 45000);
 			ps.addBatch();
 			
-			boolean flag = false;
+			boolean flag = true;
 			if(flag)
 				throw new NullPointerException("Purposefully throwing NPE");
 			
@@ -34,7 +34,7 @@ public class BatchUpdateExample {
 			connection.commit();
 			
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("There is an exception . Roll Back the transaction");
 			connection.rollback();
