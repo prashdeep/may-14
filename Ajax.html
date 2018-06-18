@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demoAjax">
+<h1 id="demo">The Demonstration of Ajax</h1>
+<button type="button" onclick="loadDoc()">Content before update</button>
+</div>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  	console.log('Ready state ..', this.readyState);
+    if (this.readyState == 4 ) {
+    	console.log(this.responseText);
+      let userData = this.responseText;
+      let user = JSON.parse(userData);
+      document.getElementById("demo").innerHTML = user.body;
+    }
+  };
+  xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
